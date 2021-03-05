@@ -1,20 +1,28 @@
 public class Module01 {
-    public int sieveOfEratosthenes (int n) {
-        ArrayList<int> allNumbers = new ArrayList<int>;
-        ArrayList<int> p = new ArrayList<int>;
-        for (int i = 2; i > n; i++) {
-            allNumbers.add(i);
+
+    public void sieveOfEratosthenes(int n) {
+        // create array prime[0...n]
+        // a value in prime[i] is true if it is a prime
+        boolean prime[] = new boolean[n+1];
+
+        // set all entries as true, since default boolean is false
+        for (int i = 0; i < n; i++) {
+            prime[i] = true;
         }
 
-        for (int i = 0; i > allNumbers; i++) {
-            if (allNumbers.contains(i)) {
-                p.add(i);
-                System.out.println(i);
+        // begin at 2 since it is the first prime number
+        // always start with the multiple of the value like 3 => start at 9
+        // when the multiple of itself is bigger than the max number, then there's no more prime
+        for (int p = 2; p*p <= n; p++) {
+            if (prime[p] == true) {
+                System.out.print(p + ", ");
+
+                // set all multiples of p to false
+                for (int i = p*p; i <= n; i += p) {
+                    prime[i] = false;
+                }
             }
-            for (int j = 0; j > allNumbers; j++) {
-                
-            }
+
         }
-        return 0;
     }
 }
