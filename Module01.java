@@ -32,8 +32,13 @@ public class Module01 {
         sieveOfEratosthenes(n);
         System.out.println();
         System.out.print("These primes are Sophie-Germain-Primes:");
-        for (int p = 2; p <= 10; p++) {
+        int x = 0;
+        for (int p = 2; p <= prime.length; p++) {
+            if (x >= 10) {
+                continue;
+            }
             if (prime[p] == true && prime[2*p+1] == true) {
+                x++;
                 System.out.print(p + ", ");
             }
         }
