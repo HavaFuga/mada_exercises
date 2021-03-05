@@ -1,4 +1,5 @@
 public class Module01 {
+    private boolean prime[];
 
     public void sieveOfEratosthenes(int n) {
         // create array prime[0...n]
@@ -23,6 +24,18 @@ public class Module01 {
                 }
             }
 
+        }
+        this.prime = prime;
+    }
+
+    public void sophieGermainPrime(int n) {
+        sieveOfEratosthenes(n);
+        System.out.println();
+        System.out.print("These primes are Sophie-Germain-Primes:");
+        for (int p = 2; p <= 10; p++) {
+            if (prime[p] == true && prime[2*p+1] == true) {
+                System.out.print(p + ", ");
+            }
         }
     }
 }
